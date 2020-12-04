@@ -1,9 +1,33 @@
-import '../styles/App.css';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-dom'
+import Login from './auth/login'
 
 function App() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
+
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    // Update the document title using the browser API
+    document.title = `You clicked ${count} times`;
+  });
+
   return (
-    <div className="App">
-      <h1>Welcome!</h1>
+    <div>
+      <p>
+        You clicked
+        {count}
+        times
+      </p>
+      <button type="button" onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+      <Router>
+        <Switch>
+          <Route exact path="/login" component={Login}>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
