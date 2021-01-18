@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const Login = ({ loggedIn }) => {
   const status = loggedIn;
+  const [state, setState] = useState({
+    email: '',
+    password: '',
+  });
+
   const handleForm = e => {
     const userData = '';
     const state = '';
     console.log('This is initial data', userData, state);
     e.preventDefault();
+  };
+
+  const handleChange = e => {
+    setState(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   return (
@@ -46,7 +58,9 @@ const Login = ({ loggedIn }) => {
             />
           </label>
         </div>
-        <button type="submit"> Login </button>
+        <div className="form__group form-btn">
+          <button type="submit"> Sign In </button>
+        </div>
       </form>
     </section>
   );
