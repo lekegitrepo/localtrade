@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-dom'
-import Login from './auth/login'
+// import { BrowserRouter as Router, Route, Switch } from 'react-dom';
+import Login from './auth/Login';
 
 function App() {
   // Declare a new state variable, which we'll call "count"
@@ -22,12 +22,9 @@ function App() {
       <button type="button" onClick={() => setCount(count + 1)}>
         Click me
       </button>
-      <Router>
-        <Switch>
-          <Route exact path="/login" component={Login}>
-          </Route>
-        </Switch>
-      </Router>
+      <div>
+        <Login loggedIn={false} />
+      </div>
     </div>
   );
 }
