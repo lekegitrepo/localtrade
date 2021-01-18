@@ -1,10 +1,13 @@
+/* eslint-disable camelcase */
+
 import React, { useState } from 'react';
 // import PropTypes from 'prop-types';
 
-const Login = () => {
+const Registration = () => {
   const [state, setState] = useState({
     email: '',
     password: '',
+    password_confirmation: '',
   });
 
   const handleForm = e => {
@@ -23,7 +26,7 @@ const Login = () => {
 
   return (
     <section>
-      <h2>Login Form</h2>
+      <h2>Registration Form</h2>
       <form onSubmit={handleForm}>
         <div className="form__group">
           <label htmlFor="fname" className="form__label">
@@ -40,6 +43,8 @@ const Login = () => {
               required
             />
           </label>
+        </div>
+        <div className="form__group">
           <label htmlFor="password" className="form__label">
             Password
             <input
@@ -54,6 +59,21 @@ const Login = () => {
             />
           </label>
         </div>
+        <div className="form__group">
+          <label htmlFor="password_confirmation" className="form__label">
+            Password Confirmation
+            <input
+              type="password"
+              name="password_confirmation"
+              className="form__input"
+              id="password"
+              placeholder="Password Confirmation"
+              value={state.password}
+              onChange={handleChange}
+              required
+            />
+          </label>
+        </div>
         <div className="form__group form-btn">
           <button type="submit"> Sign In </button>
         </div>
@@ -62,13 +82,12 @@ const Login = () => {
   );
 };
 
-/*
-Login.defaultProps = {
+/* Registration.defaultProps = {
   loggedIn: false,
 };
 
-Login.propTypes = {
+Registration.propTypes = {
   loggedIn: PropTypes.bool,
-};
-*/
-export default Login;
+}; */
+
+export default Registration;
