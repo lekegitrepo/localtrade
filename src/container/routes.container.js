@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import App from '../components/App';
 
-const Routes = () => (
+const PageRoutes = () => (
   <Router>
     <Switch>
       <Route exact path="/">
@@ -12,4 +12,4 @@ const Routes = () => (
   </Router>
 );
 
-export default Routes;
+export default PageRoutes;
