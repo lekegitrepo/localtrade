@@ -12,7 +12,7 @@ const Registration = () => {
 
   const handleForm = e => {
     const userData = '';
-    const state = '';
+    // const state = '';
     console.log('This is initial data', userData, state);
     e.preventDefault();
   };
@@ -66,16 +66,16 @@ const Registration = () => {
               type="password"
               name="password_confirmation"
               className="form__input"
-              id="password"
+              id="password_confirmation"
               placeholder="Password Confirmation"
-              value={state.password}
+              value={state.password_confirmation}
               onChange={handleChange}
               required
             />
           </label>
         </div>
         <div className="form__group form-btn">
-          <button type="submit"> Sign In </button>
+          <button type="submit"> Register </button>
         </div>
       </form>
     </section>
