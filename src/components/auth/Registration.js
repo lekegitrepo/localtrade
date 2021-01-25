@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 // import PropTypes from 'prop-types';
+import axios from 'axios';
 
 const Registration = () => {
   const [state, setState] = useState({
@@ -11,9 +12,17 @@ const Registration = () => {
   });
 
   const handleForm = e => {
-    const userData = '';
-    // const state = '';
-    console.log('This is initial data', userData, state);
+    const { email, password, password_confirmation } = state;
+    axios.post('localhost:3001/api/v1/sign_up', {
+      email,
+      password,
+      password_confirmation,
+    },
+    { withCredentials: true }).then(resp => {
+      console.log('This is response', resp);
+    }).catch(err => {
+      console.log('This is response error', err);
+    });
     e.preventDefault();
   };
 
