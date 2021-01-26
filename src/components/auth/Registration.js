@@ -12,13 +12,9 @@ const Registration = () => {
   });
 
   const handleForm = e => {
-    const { email, password, password_confirmation } = state;
-    axios.post('localhost:3001/api/v1/sign_up', {
-      email,
-      password,
-      password_confirmation,
-    },
-    { withCredentials: true }).then(resp => {
+    // const { email, password, password_confirmation } = state;
+    axios.post('http://localhost:3001/api/v1/sign_up', { user: { ...state } },
+      { withCredentials: true }).then(resp => {
       console.log('This is response', resp);
     }).catch(err => {
       console.log('This is response error', err);
