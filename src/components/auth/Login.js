@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 // import PropTypes from 'prop-types';
+import axios from 'axios';
 
 const Login = () => {
   const [state, setState] = useState({
@@ -8,9 +9,12 @@ const Login = () => {
   });
 
   const handleForm = e => {
-    const userData = '';
-    const state = '';
-    console.log('This is initial data', userData, state);
+    axios.post('http://localhost:3001/api/v1/sign_in', { session: { ...state } },
+      { withCredentials: true }).then(resp => {
+      console.log('This is response', resp);
+    }).catch(err => {
+      console.log('This is response error', err);
+    });
     e.preventDefault();
   };
 
