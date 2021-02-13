@@ -13,7 +13,7 @@ const Registration = () => {
 
   const handleForm = e => {
     // const { email, password, password_confirmation } = state;
-    axios.post('http://localhost:3001/api/v1/sign_up', { user: { ...state } },
+    axios.post('https://localtradeapi.herokuapp.com/api/v1/sign_up', { user: { ...state } },
       { withCredentials: true }).then(resp => {
       console.log('This is response', resp);
     }).catch(err => {
